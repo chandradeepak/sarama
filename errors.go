@@ -41,6 +41,8 @@ var ErrMessageTooLarge = errors.New("kafka: message is larger than Consumer.Fetc
 // a RecordBatch.
 var ErrConsumerOffsetNotAdvanced = errors.New("kafka: consumer offset was not advanced after a RecordBatch")
 
+var ErrReferenceNodeNotFound = errors.New("kafka: response did not contain a reference to node")
+
 // PacketEncodingError is returned from a failure while encoding a Kafka packet. This can happen, for example,
 // if you try to encode a string over 2^15 characters in length, since Kafka's encoding rules do not permit that.
 type PacketEncodingError struct {
