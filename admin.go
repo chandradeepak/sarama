@@ -84,6 +84,12 @@ func NewClusterAdmin(addrs []string, conf *Config) (ClusterAdmin, error) {
 		return nil, err
 	}
 
+	//make sure we can retrieve the controller
+	_, err = client.Controller()
+	if err != nil {
+		return nil, err
+	}
+
 	ca := &clusterAdmin{
 		client: client,
 		conf:   client.Config(),
